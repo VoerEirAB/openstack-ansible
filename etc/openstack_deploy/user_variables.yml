@@ -96,6 +96,32 @@ cinder_backends:
 haproxy_user_ssl_cert: /home/voereir/openstack-ansible/voereir_certs-20240618/fullchain.pem
 haproxy_user_ssl_key: /home/voereir/openstack-ansible/voereir_certs-20240618/fullchain.pem
 
+## Nova compute tuning, as running on the computes.
+# user_variables.yml is passed as extra-vars, so a per-host value in host_vars
+# (openstack_user_config.yml) cannot override a variable set here directly.
+# Per-host values are therefore read through voereir_* variables with a default.
+nova_cpu_allocation_ratio: 6.0
+nova_disk_allocation_ratio: 2.0
+nova_ram_allocation_ratio: "{{ voereir_nova_ram_allocation_ratio | default(2.0) }}"
+nova_reserved_host_memory_mb: 2048
+nova_cpu_mode: custom
+nova_nova_conf_overrides:
+  libvirt:
+    cpu_model: "{{ voereir_nova_cpu_model | default('SandyBridge-IBRS') }}"
+
+## sriov-net (VLAN 1000 on sriovnet1) is SR-IOV only: allow only
+## binding:vnic_type=direct ports on it. Each rule is the Neutron 2023.1
+## default, ANDed with the sriov-net condition. Created by
+## scripts/voereir/sriov-net-setup.sh; update the ID if the network is recreated.
+voereir_sriov_net_id: "0bb7875d-b3d1-4099-b336-005b050aa054"
+neutron_policy_overrides:
+  "create_port": "((rule:admin_only) or (role:member and project_id:%(project_id)s)) and (not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
+  "update_port:binding:vnic_type": "(rule:admin_only or role:member and project_id:%(project_id)s or rule:context_is_advsvc) and (not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
+
+## Let admins list stacks across all projects (Heat's default is deny_everybody).
+heat_policy_overrides:
+  "stacks:global_index": "role:admin"
+
 # Copyright 2014, Rackspace US, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

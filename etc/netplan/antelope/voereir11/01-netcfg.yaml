@@ -1,0 +1,38 @@
+# File created manually to add br-mgmt bridge and bind to eno2 interface
+# network: {config: disabled}
+network:
+    ethernets:
+        eno2:
+            match:
+                macaddress: f0:1f:af:d6:af:c5
+            dhcp4: no
+            mtu: 9000
+            dhcp6: no
+            set-name: eno2
+    bridges:
+        br-mgmt:
+            interfaces:
+              - eno2
+            addresses:
+            - 172.16.227.141/24
+            - 172.16.227.126/24 # For external haproxy VIP
+            - 172.16.227.127/24 # For internal haproxy VIP
+            gateway4: 172.16.227.1
+            mtu: 9000
+            nameservers:
+                addresses:
+                - 172.16.227.116
+                search:
+                - voereir.io
+                - maas
+            routes:
+            -   table: 1
+                to: 0.0.0.0/0
+                via: 172.16.227.1
+            routing-policy:
+            -   from: 172.16.227.0/24
+                priority: 100
+                table: 1
+            -   from: 172.16.227.0/24
+                table: 254
+                to: 172.16.227.0/24

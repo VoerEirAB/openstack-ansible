@@ -93,14 +93,22 @@ _infrastructure_hosts: &infrastructure_hosts
 
 # nova hypervisors
 compute_hosts: &compute_hosts
+  # voereir13
   compute1:
     ip: 172.16.227.143
+  # voereir14
   compute2:
     ip: 172.16.227.144
+    host_vars:
+      voereir_nova_ram_allocation_ratio: 4.0
+  # voereir15
   compute3:
     ip: 172.16.227.145
-  compute4:
-    ip: 172.16.227.146
+    host_vars:
+      voereir_nova_cpu_model: IvyBridge-IBRS
+  # 172.16.227.146 is not reachable and not a Nova hypervisor (Oct 2026).
+  #compute4:
+  #  ip: 172.16.227.146
 
     #ceph-osd_hosts:
     #osd1:

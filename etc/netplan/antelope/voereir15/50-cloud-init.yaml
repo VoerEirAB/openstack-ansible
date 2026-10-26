@@ -1,0 +1,85 @@
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    bridges:
+        br-mgmt:
+            addresses:
+            - 172.16.227.145/24
+            gateway4: 172.16.227.1
+            interfaces:
+            - eno2
+            macaddress: f0:1f:af:e6:81:99
+            mtu: 9000
+            nameservers:
+                addresses:
+                - 172.16.227.116
+                search:
+                - voereir.io
+                - maas
+            parameters:
+                forward-delay: 15
+                stp: false
+    ethernets:
+        eno1:
+            match:
+                macaddress: f0:1f:af:e6:81:98
+            mtu: 9000
+            set-name: eno1
+        eno2:
+            match:
+                macaddress: f0:1f:af:e6:81:99
+            mtu: 9000
+            set-name: eno2
+        enp8s0f0:
+            addresses:
+            - 20.0.0.115/24
+            match:
+                macaddress: a0:36:9f:3e:58:7c
+            mtu: 9000
+            nameservers:
+                addresses:
+                - 172.16.227.116
+                search:
+                - voereir.io
+                - maas
+            routes:
+            -   table: 2
+                to: 0.0.0.0/0
+                via: 20.0.0.1
+            routing-policy:
+            -   from: 20.0.0.0/24
+                priority: 100
+                table: 2
+            -   from: 20.0.0.0/24
+                table: 254
+                to: 20.0.0.0/24
+            set-name: enp8s0f0
+        enp8s0f1:
+            virtual-function-count: 16
+            addresses:
+            - 30.0.0.115/24
+            match:
+                macaddress: a0:36:9f:3e:58:7e
+            mtu: 9000
+            nameservers:
+                addresses:
+                - 172.16.227.116
+                search:
+                - voereir.io
+                - maas
+            routes:
+            -   table: 3
+                to: 0.0.0.0/0
+                via: 30.0.0.1
+            routing-policy:
+            -   from: 30.0.0.0/24
+                priority: 100
+                table: 3
+            -   from: 30.0.0.0/24
+                table: 254
+                to: 30.0.0.0/24
+            set-name: enp8s0f1
+    version: 2
