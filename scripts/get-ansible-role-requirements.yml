@@ -154,7 +154,7 @@
     config_dir: "{{ lookup('env', 'OSA_CONFIG_DIR') | default('/etc/openstack_deploy', true) }}"
     required_roles: "{{ lookup('file', role_file) | from_yaml }}"
     role_file: "{{ playbook_dir }}/../ansible-role-requirements.yml"
-    role_path_default: '/etc/ansible/roles'
+    role_path_default: '/home/voereir/openstack-ansible/roles'
     user_roles: "{{ lookup('file', user_role_path, errors='ignore')|default([], true) | from_yaml }}"
     user_role_path: "{{ config_dir ~ '/' ~ (user_role_file|default('')) }}"
     git_clone_retries: 2

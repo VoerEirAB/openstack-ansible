@@ -1,0 +1,1 @@
+setup-hosts.yml --limit '!galera_all:!rabbitmq_all' -e package_state=latest &&                      openstack-ansible setup-hosts.yml -e 'lxc_container_allow_restarts=false' --limit 'galera_all:rabbitmq_all' ||                      openstack-ansible setup-hosts.yml -e package_state=latest

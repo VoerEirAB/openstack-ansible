@@ -1,0 +1,2203 @@
+{
+  "_infrastructure_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "_meta": {
+    "hostvars": {
+      "compute1": {
+        "ansible_host": "172.16.227.143",
+        "component": "ceilometer_agent_compute",
+        "container_name": "compute1",
+        "container_networks": {
+          "eno1_address": {
+            "bridge": "br-flat",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "enp8s0f1_address": {
+            "bridge": "br-vlan",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "management_address": {
+            "address": "172.16.227.143",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          },
+          "tunnel_address": {
+            "bridge": "br-vxlan",
+            "mtu": "9000",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          }
+        },
+        "container_tech": "lxc",
+        "container_types": "compute1-host_containers",
+        "is_metal": true,
+        "management_address": "172.16.227.143",
+        "physical_host": "compute1",
+        "physical_host_group": "metering-compute_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "compute2": {
+        "ansible_host": "172.16.227.144",
+        "component": "ceilometer_agent_compute",
+        "container_name": "compute2",
+        "container_networks": {
+          "eno1_address": {
+            "bridge": "br-flat",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "enp8s0f1_address": {
+            "bridge": "br-vlan",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "management_address": {
+            "address": "172.16.227.144",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          },
+          "tunnel_address": {
+            "bridge": "br-vxlan",
+            "mtu": "9000",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          }
+        },
+        "container_tech": "lxc",
+        "container_types": "compute2-host_containers",
+        "is_metal": true,
+        "management_address": "172.16.227.144",
+        "physical_host": "compute2",
+        "physical_host_group": "metering-compute_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "compute3": {
+        "ansible_host": "172.16.227.145",
+        "component": "ceilometer_agent_compute",
+        "container_name": "compute3",
+        "container_networks": {
+          "eno1_address": {
+            "bridge": "br-flat",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "enp8s0f1_address": {
+            "bridge": "br-vlan",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "management_address": {
+            "address": "172.16.227.145",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          },
+          "tunnel_address": {
+            "bridge": "br-vxlan",
+            "mtu": "9000",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          }
+        },
+        "container_tech": "lxc",
+        "container_types": "compute3-host_containers",
+        "is_metal": true,
+        "management_address": "172.16.227.145",
+        "physical_host": "compute3",
+        "physical_host_group": "metering-compute_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "compute4": {
+        "ansible_host": "172.16.227.146",
+        "component": "ceilometer_agent_compute",
+        "container_name": "compute4",
+        "container_networks": {
+          "eno1_address": {
+            "bridge": "br-flat",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "enp8s0f1_address": {
+            "bridge": "br-vlan",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "management_address": {
+            "address": "172.16.227.146",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          },
+          "tunnel_address": {
+            "bridge": "br-vxlan",
+            "mtu": "9000",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          }
+        },
+        "container_tech": "lxc",
+        "container_types": "compute4-host_containers",
+        "is_metal": true,
+        "management_address": "172.16.227.146",
+        "physical_host": "compute4",
+        "physical_host_group": "metering-compute_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "infra1": {
+        "ansible_host": "172.16.227.141",
+        "component": "utility",
+        "container_name": "infra1",
+        "container_networks": {
+          "eno1_address": {
+            "bridge": "br-flat",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "enp8s0f1_address": {
+            "bridge": "br-vlan",
+            "mtu": "9000",
+            "netmask": null,
+            "type": "veth"
+          },
+          "management_address": {
+            "address": "172.16.227.141",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          },
+          "tunnel_address": {
+            "bridge": "br-vxlan",
+            "mtu": "9000",
+            "netmask": "255.255.255.0",
+            "type": "veth"
+          }
+        },
+        "container_tech": "lxc",
+        "container_types": "infra1-host_containers",
+        "is_metal": true,
+        "management_address": "172.16.227.141",
+        "physical_host": "infra1",
+        "physical_host_group": "shared-infra_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      }
+    }
+  },
+  "adjutant_all": {
+    "children": [
+      "adjutant_api"
+    ],
+    "hosts": []
+  },
+  "adjutant_api": {
+    "children": [],
+    "hosts": []
+  },
+  "adjutant_container": {
+    "hosts": []
+  },
+  "all": {
+    "vars": {
+      "cidr_networks": {
+        "management": "172.16.227.0/24",
+        "tunnel": "192.168.11.0/24"
+      },
+      "container_cidr": "172.16.227.0/24",
+      "external_lb_vip_address": "antelope.voereir.io",
+      "internal_lb_vip_address": "172.16.227.127",
+      "management_bridge": "br-mgmt",
+      "provider_networks": [
+        {
+          "network": {
+            "container_bridge": "br-mgmt",
+            "container_interface": "eno1",
+            "container_type": "veth",
+            "group_binds": [
+              "all_containers",
+              "hosts"
+            ],
+            "ip_from_q": "management",
+            "is_management_address": true,
+            "type": "raw"
+          }
+        },
+        {
+          "network": {
+            "container_bridge": "br-vxlan",
+            "container_interface": "eno1",
+            "container_mtu": "9000",
+            "container_type": "veth",
+            "group_binds": [
+              "neutron_openvswitch_agent"
+            ],
+            "ip_from_q": "tunnel",
+            "net_name": "vxlan",
+            "range": "1:1000",
+            "type": "vxlan"
+          }
+        },
+        {
+          "network": {
+            "container_bridge": "br-flat",
+            "container_interface": "eno1",
+            "container_mtu": "9000",
+            "container_type": "veth",
+            "group_binds": [
+              "neutron_openvswitch_agent"
+            ],
+            "net_name": "physnet1",
+            "type": "flat"
+          }
+        },
+        {
+          "network": {
+            "container_bridge": "br-vlan",
+            "container_interface": "enp8s0f1",
+            "container_mtu": "9000",
+            "container_type": "veth",
+            "group_binds": [
+              "neutron_openvswitch_agent",
+              "neutron_sriov_nic_agent"
+            ],
+            "net_name": "sriovnet1",
+            "range": "1000:1009",
+            "sriov_host_interfaces": "enp8s0f1",
+            "type": "vlan"
+          }
+        }
+      ]
+    }
+  },
+  "all_containers": {
+    "children": [
+      "database_containers",
+      "cloudkitty_containers",
+      "ceph-mon_containers",
+      "ceph-osd_containers",
+      "ceph-rgw_containers",
+      "ceph-mds_containers",
+      "ceph-nfs_containers",
+      "haproxy_containers",
+      "dnsaas_containers",
+      "storage-infra_containers",
+      "storage_containers",
+      "sahara-infra_containers",
+      "zun-compute_containers",
+      "zun-infra_containers",
+      "swift_containers",
+      "swift-proxy_containers",
+      "trove-infra_containers",
+      "murano-infra_containers",
+      "shared-infra_containers",
+      "metrics_containers",
+      "senlin-infra_containers",
+      "compute-infra_containers",
+      "compute_containers",
+      "kvm-compute_containers",
+      "qemu-compute_containers",
+      "unbound_containers",
+      "metering-alarm_containers",
+      "magnum-infra_containers",
+      "image_containers",
+      "masakari-monitor_containers",
+      "masakari-infra_containers",
+      "network_containers",
+      "network-agent_containers",
+      "network-infra_containers",
+      "network-gateway_containers",
+      "network-northd_containers",
+      "ironic-infra_containers",
+      "ironic-compute_containers",
+      "ironic-inspector_containers",
+      "os-infra_containers",
+      "metering-compute_containers",
+      "metering-infra_containers",
+      "mq_containers",
+      "oslomsg-rpc_containers",
+      "memcaching_containers",
+      "registration_containers",
+      "octavia-infra_containers",
+      "identity_containers",
+      "mano_containers",
+      "repo-infra_containers",
+      "orchestration_containers",
+      "coordination_containers",
+      "manila-data_containers",
+      "manila-infra_containers",
+      "mistral-infra_containers",
+      "dashboard_containers",
+      "placement-infra_containers",
+      "key-manager_containers",
+      "operator_containers",
+      "reservation_containers"
+    ],
+    "hosts": []
+  },
+  "aodh_alarm_evaluator": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "aodh_alarm_notifier": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "aodh_all": {
+    "children": [
+      "aodh_api",
+      "aodh_listener",
+      "aodh_alarm_evaluator",
+      "aodh_alarm_notifier"
+    ],
+    "hosts": []
+  },
+  "aodh_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "aodh_container": {
+    "hosts": []
+  },
+  "aodh_listener": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "barbican_all": {
+    "children": [
+      "barbican_api"
+    ],
+    "hosts": []
+  },
+  "barbican_api": {
+    "children": [],
+    "hosts": []
+  },
+  "barbican_container": {
+    "hosts": []
+  },
+  "blazar_all": {
+    "children": [
+      "blazar_api",
+      "blazar_manager"
+    ],
+    "hosts": []
+  },
+  "blazar_api": {
+    "children": [],
+    "hosts": []
+  },
+  "blazar_container": {
+    "hosts": []
+  },
+  "blazar_manager": {
+    "children": [],
+    "hosts": []
+  },
+  "ceilometer_agent_central": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "ceilometer_agent_compute": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "ceilometer_agent_notification": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "ceilometer_all": {
+    "children": [
+      "ceilometer_agent_compute",
+      "ceilometer_agent_central",
+      "ceilometer_agent_notification"
+    ],
+    "hosts": []
+  },
+  "ceilometer_central_container": {
+    "hosts": []
+  },
+  "ceph-mds": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-mds_container": {
+    "hosts": []
+  },
+  "ceph-mds_containers": {
+    "children": [
+      "ceph-mds_container"
+    ],
+    "hosts": []
+  },
+  "ceph-mds_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-mon": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-mon_container": {
+    "hosts": []
+  },
+  "ceph-mon_containers": {
+    "children": [
+      "ceph-mon_container"
+    ],
+    "hosts": []
+  },
+  "ceph-mon_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-nfs": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-nfs_container": {
+    "hosts": []
+  },
+  "ceph-nfs_containers": {
+    "children": [
+      "ceph-nfs_container"
+    ],
+    "hosts": []
+  },
+  "ceph-nfs_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-osd": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-osd_container": {
+    "hosts": []
+  },
+  "ceph-osd_containers": {
+    "children": [
+      "ceph-osd_container"
+    ],
+    "hosts": []
+  },
+  "ceph-osd_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-rgw": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph-rgw_container": {
+    "hosts": []
+  },
+  "ceph-rgw_containers": {
+    "children": [
+      "ceph-rgw_container"
+    ],
+    "hosts": []
+  },
+  "ceph-rgw_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ceph_all": {
+    "children": [
+      "ceph-mon",
+      "ceph-osd",
+      "ceph-rgw",
+      "ceph-mds",
+      "ceph-nfs"
+    ],
+    "hosts": []
+  },
+  "cinder_all": {
+    "children": [
+      "cinder_api",
+      "cinder_scheduler",
+      "cinder_volume",
+      "cinder_backup"
+    ],
+    "hosts": []
+  },
+  "cinder_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "cinder_api_container": {
+    "hosts": []
+  },
+  "cinder_backup": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "cinder_scheduler": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "cinder_volume": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "cinder_volumes_container": {
+    "hosts": []
+  },
+  "cloudkitty_all": {
+    "children": [
+      "cloudkitty_api",
+      "cloudkitty_engine"
+    ],
+    "hosts": []
+  },
+  "cloudkitty_api": {
+    "children": [],
+    "hosts": []
+  },
+  "cloudkitty_container": {
+    "hosts": []
+  },
+  "cloudkitty_containers": {
+    "children": [
+      "cloudkitty_container"
+    ],
+    "hosts": []
+  },
+  "cloudkitty_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "cloudkitty_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "compute-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "compute-infra_containers": {
+    "children": [
+      "nova_api_container"
+    ],
+    "hosts": []
+  },
+  "compute-infra_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "compute_all": {
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "compute_containers": {
+    "children": [
+      "nova_compute_container"
+    ],
+    "hosts": []
+  },
+  "compute_hosts": {
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "coordination_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "coordination_containers": {
+    "children": [
+      "zookeeper_container"
+    ],
+    "hosts": []
+  },
+  "coordination_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "dashboard_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "dashboard_containers": {
+    "children": [
+      "horizon_container"
+    ],
+    "hosts": []
+  },
+  "dashboard_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "database_containers": {
+    "children": [
+      "galera_container"
+    ],
+    "hosts": []
+  },
+  "database_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_all": {
+    "children": [
+      "designate_api",
+      "designate_central",
+      "designate_mdns",
+      "designate_worker",
+      "designate_producer",
+      "designate_sink"
+    ],
+    "hosts": []
+  },
+  "designate_api": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_central": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_container": {
+    "hosts": []
+  },
+  "designate_mdns": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_producer": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_sink": {
+    "children": [],
+    "hosts": []
+  },
+  "designate_worker": {
+    "children": [],
+    "hosts": []
+  },
+  "dnsaas_containers": {
+    "children": [
+      "designate_container"
+    ],
+    "hosts": []
+  },
+  "dnsaas_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "galera": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "galera_all": {
+    "children": [
+      "galera"
+    ],
+    "hosts": []
+  },
+  "galera_container": {
+    "hosts": []
+  },
+  "glance_all": {
+    "children": [
+      "glance_api"
+    ],
+    "hosts": []
+  },
+  "glance_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "glance_container": {
+    "hosts": []
+  },
+  "gnocchi_all": {
+    "children": [
+      "gnocchi_api",
+      "gnocchi_metricd"
+    ],
+    "hosts": []
+  },
+  "gnocchi_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "gnocchi_container": {
+    "hosts": []
+  },
+  "gnocchi_metricd": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "haproxy": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "haproxy_all": {
+    "children": [
+      "haproxy"
+    ],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "haproxy_container": {
+    "hosts": []
+  },
+  "haproxy_containers": {
+    "children": [
+      "haproxy_container"
+    ],
+    "hosts": []
+  },
+  "haproxy_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "heat_all": {
+    "children": [
+      "heat_api",
+      "heat_api_cfn",
+      "heat_engine"
+    ],
+    "hosts": []
+  },
+  "heat_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "heat_api_cfn": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "heat_api_container": {
+    "hosts": []
+  },
+  "heat_engine": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "horizon": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "horizon_all": {
+    "children": [
+      "horizon"
+    ],
+    "hosts": []
+  },
+  "horizon_container": {
+    "hosts": []
+  },
+  "hosts": {
+    "children": [
+      "database_hosts",
+      "cloudkitty_hosts",
+      "ceph-mon_hosts",
+      "ceph-osd_hosts",
+      "ceph-rgw_hosts",
+      "ceph-mds_hosts",
+      "ceph-nfs_hosts",
+      "haproxy_hosts",
+      "dnsaas_hosts",
+      "storage-infra_hosts",
+      "storage_hosts",
+      "sahara-infra_hosts",
+      "zun-compute_hosts",
+      "zun-infra_hosts",
+      "swift_hosts",
+      "swift-proxy_hosts",
+      "trove-infra_hosts",
+      "murano-infra_hosts",
+      "shared-infra_hosts",
+      "metrics_hosts",
+      "senlin-infra_hosts",
+      "compute-infra_hosts",
+      "compute_hosts",
+      "kvm-compute_hosts",
+      "qemu-compute_hosts",
+      "unbound_hosts",
+      "metering-alarm_hosts",
+      "magnum-infra_hosts",
+      "image_hosts",
+      "masakari-monitor_hosts",
+      "masakari-infra_hosts",
+      "network_hosts",
+      "network-agent_hosts",
+      "network-infra_hosts",
+      "network-gateway_hosts",
+      "network-northd_hosts",
+      "ironic-infra_hosts",
+      "ironic-compute_hosts",
+      "ironic-inspector_hosts",
+      "os-infra_hosts",
+      "metering-compute_hosts",
+      "metering-infra_hosts",
+      "mq_hosts",
+      "oslomsg-rpc_hosts",
+      "memcaching_hosts",
+      "registration_hosts",
+      "octavia-infra_hosts",
+      "identity_hosts",
+      "mano_hosts",
+      "repo-infra_hosts",
+      "orchestration_hosts",
+      "coordination_hosts",
+      "manila-data_hosts",
+      "manila-infra_hosts",
+      "mistral-infra_hosts",
+      "dashboard_hosts",
+      "placement-infra_hosts",
+      "key-manager_hosts",
+      "operator_hosts",
+      "reservation_hosts"
+    ],
+    "hosts": []
+  },
+  "identity_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "identity_containers": {
+    "children": [
+      "keystone_container"
+    ],
+    "hosts": []
+  },
+  "identity_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "image_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "image_containers": {
+    "children": [
+      "glance_container"
+    ],
+    "hosts": []
+  },
+  "image_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "ironic-compute_containers": {
+    "children": [
+      "ironic_compute_container"
+    ],
+    "hosts": []
+  },
+  "ironic-compute_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic-infra_containers": {
+    "children": [
+      "ironic_api_container"
+    ],
+    "hosts": []
+  },
+  "ironic-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic-inspector_containers": {
+    "children": [
+      "ironic_inspector_container"
+    ],
+    "hosts": []
+  },
+  "ironic-inspector_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_all": {
+    "children": [
+      "ironic_api",
+      "ironic_conductor",
+      "ironic_inspector",
+      "ironic_console"
+    ],
+    "hosts": []
+  },
+  "ironic_api": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_api_container": {
+    "hosts": []
+  },
+  "ironic_compute": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_compute_container": {
+    "hosts": []
+  },
+  "ironic_conductor": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_console": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_inspector": {
+    "children": [],
+    "hosts": []
+  },
+  "ironic_inspector_container": {
+    "hosts": []
+  },
+  "ironic_neutron_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "key-manager_containers": {
+    "children": [
+      "barbican_container"
+    ],
+    "hosts": []
+  },
+  "key-manager_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "keystone": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "keystone_all": {
+    "children": [
+      "keystone"
+    ],
+    "hosts": []
+  },
+  "keystone_container": {
+    "hosts": []
+  },
+  "kvm-compute_containers": {
+    "children": [
+      "nova_compute_container"
+    ],
+    "hosts": []
+  },
+  "kvm-compute_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "lxc_hosts": {
+    "hosts": []
+  },
+  "magnum": {
+    "children": [],
+    "hosts": []
+  },
+  "magnum-infra_containers": {
+    "children": [
+      "magnum_container"
+    ],
+    "hosts": []
+  },
+  "magnum-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "magnum_all": {
+    "children": [
+      "magnum"
+    ],
+    "hosts": []
+  },
+  "magnum_container": {
+    "hosts": []
+  },
+  "manila-data_containers": {
+    "children": [
+      "manila_data_container"
+    ],
+    "hosts": []
+  },
+  "manila-data_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "manila-infra_containers": {
+    "children": [
+      "manila_container"
+    ],
+    "hosts": []
+  },
+  "manila-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "manila_all": {
+    "children": [
+      "manila_api",
+      "manila_scheduler",
+      "manila_data",
+      "manila_share"
+    ],
+    "hosts": []
+  },
+  "manila_api": {
+    "children": [],
+    "hosts": []
+  },
+  "manila_container": {
+    "hosts": []
+  },
+  "manila_data": {
+    "children": [],
+    "hosts": []
+  },
+  "manila_data_container": {
+    "hosts": []
+  },
+  "manila_scheduler": {
+    "children": [],
+    "hosts": []
+  },
+  "manila_share": {
+    "children": [],
+    "hosts": []
+  },
+  "mano_containers": {
+    "children": [
+      "tacker_container"
+    ],
+    "hosts": []
+  },
+  "mano_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari-infra_containers": {
+    "children": [
+      "masakari_api_container"
+    ],
+    "hosts": []
+  },
+  "masakari-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari-monitor_containers": {
+    "children": [
+      "masakari_monitors_container"
+    ],
+    "hosts": []
+  },
+  "masakari-monitor_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari_all": {
+    "children": [
+      "masakari_engine",
+      "masakari_api",
+      "masakari_monitor"
+    ],
+    "hosts": []
+  },
+  "masakari_api": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari_api_container": {
+    "hosts": []
+  },
+  "masakari_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari_monitor": {
+    "children": [],
+    "hosts": []
+  },
+  "masakari_monitors_container": {
+    "hosts": []
+  },
+  "memcached": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "memcached_all": {
+    "children": [
+      "memcached"
+    ],
+    "hosts": []
+  },
+  "memcached_container": {
+    "hosts": []
+  },
+  "memcaching_containers": {
+    "children": [
+      "memcached_container"
+    ],
+    "hosts": []
+  },
+  "memcaching_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "metering-alarm_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "metering-alarm_containers": {
+    "children": [
+      "aodh_container"
+    ],
+    "hosts": []
+  },
+  "metering-alarm_hosts": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "metering-compute_all": {
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "metering-compute_container": {
+    "hosts": []
+  },
+  "metering-compute_containers": {
+    "children": [
+      "metering-compute_container"
+    ],
+    "hosts": []
+  },
+  "metering-compute_hosts": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "metering-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "metering-infra_containers": {
+    "children": [
+      "ceilometer_central_container"
+    ],
+    "hosts": []
+  },
+  "metering-infra_hosts": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "metrics_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "metrics_containers": {
+    "children": [
+      "gnocchi_container"
+    ],
+    "hosts": []
+  },
+  "metrics_hosts": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "mistral-infra_containers": {
+    "children": [
+      "mistral_container"
+    ],
+    "hosts": []
+  },
+  "mistral-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "mistral_all": {
+    "children": [
+      "mistral_api",
+      "mistral_engine",
+      "mistral_executor",
+      "mistral_notifier"
+    ],
+    "hosts": []
+  },
+  "mistral_api": {
+    "children": [],
+    "hosts": []
+  },
+  "mistral_container": {
+    "hosts": []
+  },
+  "mistral_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "mistral_executor": {
+    "children": [],
+    "hosts": []
+  },
+  "mistral_notifier": {
+    "children": [],
+    "hosts": []
+  },
+  "mq_containers": {
+    "children": [
+      "rabbit_mq_container"
+    ],
+    "hosts": []
+  },
+  "mq_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "murano-infra_containers": {
+    "children": [
+      "murano_container"
+    ],
+    "hosts": []
+  },
+  "murano-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "murano_all": {
+    "children": [
+      "murano_api",
+      "murano_engine"
+    ],
+    "hosts": []
+  },
+  "murano_api": {
+    "children": [],
+    "hosts": []
+  },
+  "murano_container": {
+    "hosts": []
+  },
+  "murano_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "network-agent_containers": {
+    "children": [
+      "neutron_agents_container"
+    ],
+    "hosts": []
+  },
+  "network-agent_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "network-gateway_containers": {
+    "children": [
+      "neutron_ovn_gateway_container"
+    ],
+    "hosts": []
+  },
+  "network-gateway_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "network-infra_containers": {
+    "children": [
+      "neutron_server_container"
+    ],
+    "hosts": []
+  },
+  "network-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "network-northd_containers": {
+    "children": [
+      "neutron_ovn_northd_container"
+    ],
+    "hosts": []
+  },
+  "network-northd_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "network_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "network_containers": {
+    "children": [
+      "neutron_agents_container",
+      "neutron_server_container"
+    ],
+    "hosts": []
+  },
+  "network_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_agents_container": {
+    "hosts": []
+  },
+  "neutron_all": {
+    "children": [
+      "ironic_neutron_agent",
+      "neutron_agent",
+      "neutron_dhcp_agent",
+      "neutron_linuxbridge_agent",
+      "neutron_openvswitch_agent",
+      "neutron_metering_agent",
+      "neutron_l3_agent",
+      "neutron_bgp_dragent",
+      "neutron_metadata_agent",
+      "neutron_sriov_nic_agent",
+      "neutron_server",
+      "neutron_ovn_controller",
+      "neutron_ovn_gateway",
+      "neutron_ovn_northd",
+      "opendaylight"
+    ],
+    "hosts": []
+  },
+  "neutron_bgp_dragent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_dhcp_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_l3_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_linuxbridge_agent": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "infra1",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "neutron_metadata_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_metering_agent": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_openvswitch_agent": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "infra1",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "neutron_ovn_controller": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "neutron_ovn_gateway": {
+    "children": [],
+    "hosts": []
+  },
+  "neutron_ovn_gateway_container": {
+    "hosts": []
+  },
+  "neutron_ovn_northd": {
+    "children": [],
+    "hosts": []
+  },
+  "neutron_ovn_northd_container": {
+    "hosts": []
+  },
+  "neutron_server": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "neutron_server_container": {
+    "hosts": []
+  },
+  "neutron_sriov_nic_agent": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "infra1",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "nova_all": {
+    "children": [
+      "nova_api_metadata",
+      "nova_api_os_compute",
+      "nova_compute",
+      "nova_conductor",
+      "nova_scheduler",
+      "nova_console",
+      "ironic_compute"
+    ],
+    "hosts": []
+  },
+  "nova_api_container": {
+    "hosts": []
+  },
+  "nova_api_metadata": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "nova_api_os_compute": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "nova_compute": {
+    "children": [],
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "nova_compute_container": {
+    "hosts": []
+  },
+  "nova_conductor": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "nova_console": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "nova_scheduler": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "octavia-api": {
+    "children": [],
+    "hosts": []
+  },
+  "octavia-health-manager": {
+    "children": [],
+    "hosts": []
+  },
+  "octavia-housekeeping": {
+    "children": [],
+    "hosts": []
+  },
+  "octavia-infra_containers": {
+    "children": [
+      "octavia_server_container"
+    ],
+    "hosts": []
+  },
+  "octavia-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "octavia-worker": {
+    "children": [],
+    "hosts": []
+  },
+  "octavia_all": {
+    "children": [
+      "octavia-api",
+      "octavia-worker",
+      "octavia-housekeeping",
+      "octavia-health-manager"
+    ],
+    "hosts": []
+  },
+  "octavia_server_container": {
+    "hosts": []
+  },
+  "opendaylight": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "operator_containers": {
+    "children": [
+      "utility_container"
+    ],
+    "hosts": []
+  },
+  "operator_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "orchestration_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "orchestration_containers": {
+    "children": [
+      "heat_api_container"
+    ],
+    "hosts": []
+  },
+  "orchestration_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "os-infra_containers": {
+    "children": [
+      "nova_api_container",
+      "glance_container",
+      "heat_api_container",
+      "horizon_container",
+      "placement_container"
+    ],
+    "hosts": []
+  },
+  "os-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "oslomsg-rpc_containers": {
+    "children": [
+      "qdrouterd_container"
+    ],
+    "hosts": []
+  },
+  "oslomsg-rpc_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "pkg_repo": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "placement-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "placement-infra_containers": {
+    "children": [
+      "placement_container"
+    ],
+    "hosts": []
+  },
+  "placement-infra_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "placement_all": {
+    "children": [
+      "placement_api"
+    ],
+    "hosts": []
+  },
+  "placement_api": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "placement_container": {
+    "hosts": []
+  },
+  "qdrouterd": {
+    "children": [],
+    "hosts": []
+  },
+  "qdrouterd_all": {
+    "children": [
+      "qdrouterd"
+    ],
+    "hosts": []
+  },
+  "qdrouterd_container": {
+    "hosts": []
+  },
+  "qemu-compute_containers": {
+    "children": [
+      "nova_compute_container"
+    ],
+    "hosts": []
+  },
+  "qemu-compute_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "rabbit_mq_container": {
+    "hosts": []
+  },
+  "rabbitmq": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "rabbitmq_all": {
+    "children": [
+      "rabbitmq"
+    ],
+    "hosts": []
+  },
+  "registration_containers": {
+    "children": [
+      "adjutant_container"
+    ],
+    "hosts": []
+  },
+  "registration_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "remote": {
+    "children": [
+      "swift-remote_hosts"
+    ],
+    "hosts": []
+  },
+  "remote_containers": {
+    "children": [
+      "swift-remote_containers"
+    ],
+    "hosts": []
+  },
+  "repo-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "repo-infra_containers": {
+    "children": [
+      "repo_container"
+    ],
+    "hosts": []
+  },
+  "repo-infra_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "repo_all": {
+    "children": [
+      "pkg_repo"
+    ],
+    "hosts": []
+  },
+  "repo_container": {
+    "hosts": []
+  },
+  "reservation_containers": {
+    "children": [
+      "blazar_container"
+    ],
+    "hosts": []
+  },
+  "reservation_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "sahara-infra_containers": {
+    "children": [
+      "sahara_container"
+    ],
+    "hosts": []
+  },
+  "sahara-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "sahara_all": {
+    "children": [
+      "sahara_api",
+      "sahara_engine"
+    ],
+    "hosts": []
+  },
+  "sahara_api": {
+    "children": [],
+    "hosts": []
+  },
+  "sahara_container": {
+    "hosts": []
+  },
+  "sahara_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "senlin-infra_containers": {
+    "children": [
+      "senlin_container"
+    ],
+    "hosts": []
+  },
+  "senlin-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "senlin_all": {
+    "children": [
+      "senlin_api",
+      "senlin_engine",
+      "senlin_conductor",
+      "senlin_health_manager"
+    ],
+    "hosts": []
+  },
+  "senlin_api": {
+    "children": [],
+    "hosts": []
+  },
+  "senlin_conductor": {
+    "children": [],
+    "hosts": []
+  },
+  "senlin_container": {
+    "hosts": []
+  },
+  "senlin_engine": {
+    "children": [],
+    "hosts": []
+  },
+  "senlin_health_manager": {
+    "children": [],
+    "hosts": []
+  },
+  "shared-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "shared-infra_containers": {
+    "children": [
+      "galera_container",
+      "rabbit_mq_container",
+      "memcached_container",
+      "utility_container"
+    ],
+    "hosts": []
+  },
+  "shared-infra_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "storage-infra_all": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "storage-infra_containers": {
+    "children": [
+      "cinder_api_container"
+    ],
+    "hosts": []
+  },
+  "storage-infra_hosts": {
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "storage_all": {
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "storage_containers": {
+    "children": [
+      "cinder_volumes_container"
+    ],
+    "hosts": []
+  },
+  "storage_hosts": {
+    "hosts": [
+      "compute1",
+      "compute2",
+      "compute3",
+      "compute4"
+    ]
+  },
+  "swift-proxy_containers": {
+    "children": [
+      "swift_proxy_container"
+    ],
+    "hosts": []
+  },
+  "swift-proxy_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "swift-remote_containers": {
+    "children": [
+      "swift_remote_container"
+    ],
+    "hosts": []
+  },
+  "swift-remote_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_acc": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_acc_container": {
+    "hosts": []
+  },
+  "swift_all": {
+    "children": [
+      "swift_proxy",
+      "swift_acc",
+      "swift_obj",
+      "swift_cont"
+    ],
+    "hosts": []
+  },
+  "swift_cont": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_cont_container": {
+    "hosts": []
+  },
+  "swift_containers": {
+    "children": [
+      "swift_acc_container",
+      "swift_obj_container",
+      "swift_cont_container"
+    ],
+    "hosts": []
+  },
+  "swift_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_obj": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_obj_container": {
+    "hosts": []
+  },
+  "swift_proxy": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_proxy_container": {
+    "hosts": []
+  },
+  "swift_remote": {
+    "children": [],
+    "hosts": []
+  },
+  "swift_remote_all": {
+    "children": [
+      "swift_remote"
+    ],
+    "hosts": []
+  },
+  "swift_remote_container": {
+    "hosts": []
+  },
+  "tacker_all": {
+    "children": [
+      "tacker_server"
+    ],
+    "hosts": []
+  },
+  "tacker_container": {
+    "hosts": []
+  },
+  "tacker_server": {
+    "children": [],
+    "hosts": []
+  },
+  "trove-infra_containers": {
+    "children": [
+      "trove_api_container"
+    ],
+    "hosts": []
+  },
+  "trove-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "trove_all": {
+    "children": [
+      "trove_api",
+      "trove_conductor",
+      "trove_taskmanager"
+    ],
+    "hosts": []
+  },
+  "trove_api": {
+    "children": [],
+    "hosts": []
+  },
+  "trove_api_container": {
+    "hosts": []
+  },
+  "trove_conductor": {
+    "children": [],
+    "hosts": []
+  },
+  "trove_taskmanager": {
+    "children": [],
+    "hosts": []
+  },
+  "unbound": {
+    "children": [],
+    "hosts": []
+  },
+  "unbound_all": {
+    "children": [
+      "unbound"
+    ],
+    "hosts": []
+  },
+  "unbound_container": {
+    "hosts": []
+  },
+  "unbound_containers": {
+    "children": [
+      "unbound_container"
+    ],
+    "hosts": []
+  },
+  "unbound_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "utility": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "utility_all": {
+    "children": [
+      "utility"
+    ],
+    "hosts": []
+  },
+  "utility_container": {
+    "hosts": []
+  },
+  "zookeeper": {
+    "children": [],
+    "hosts": [
+      "infra1"
+    ]
+  },
+  "zookeeper_all": {
+    "children": [
+      "zookeeper"
+    ],
+    "hosts": []
+  },
+  "zookeeper_container": {
+    "hosts": []
+  },
+  "zun-compute_containers": {
+    "children": [
+      "zun_compute_container"
+    ],
+    "hosts": []
+  },
+  "zun-compute_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "zun-infra_containers": {
+    "children": [
+      "zun_api_container"
+    ],
+    "hosts": []
+  },
+  "zun-infra_hosts": {
+    "children": [],
+    "hosts": []
+  },
+  "zun_all": {
+    "children": [
+      "zun_api",
+      "zun_compute"
+    ],
+    "hosts": []
+  },
+  "zun_api": {
+    "children": [],
+    "hosts": []
+  },
+  "zun_api_container": {
+    "hosts": []
+  },
+  "zun_compute": {
+    "children": [],
+    "hosts": []
+  },
+  "zun_compute_container": {
+    "hosts": []
+  }
+}

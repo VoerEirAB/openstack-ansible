@@ -1,4 +1,101 @@
 ---
+#haproxy_keepalived_external_vip_cidr: "172.16.227.111/32"
+#haproxy_keepalived_internal_vip_cidr: "172.16.227.111/32"
+#haproxy_service_enabled: false
+#HARDCORE DB ADDRESS DUE TO HAPOXY ISSUE 
+galera_use_ssl: false
+galera_cluster_name: "openstack_galera_cluster"
+rabbitmq_management_ssl: false
+openstack_host_specific_kernel_modules:
+  - name: "openvswitch"
+    pattern: "CONFIG_OPENVSWITCH="
+    group: "network_hosts"
+
+neutron_provider_networks:
+  network_flat_networks: "physnet1"
+  network_types: "vxlan,vlan,flat"
+  network_vlan_ranges: "sriovnet1:1000:1009"
+  network_vxlan_ranges: "1:1000"
+  network_mappings: "physnet1:br-flat"
+  network_interface_mappings: "br-flat:eno1"
+  network_sriov_mappings: "sriovnet1:enp8s0f1"
+# Enable DPDK support
+#ovs_dpdk_support: True
+#ovs_dpdk_pci_addresses:
+#  - "0000:08:11.1"
+#  - "0000:08:11.3"
+#  - "0000:08:11.5"
+#  - "0000:08:11.7"
+
+  #ovs_dpdk_lcore_mask: 5500
+  #ovs_dpdk_pmd_cpu_mask: 2A80
+  #ovs_dpdk_socket_mem: "3072,1024"
+
+
+## Ceph cluster fsid (must be generated before first run)
+## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
+generate_fsid: true
+fsid: d1c622f3-4bcc-4309-b953-b503fc8aa9ba # Replace with your generated UUID
+
+neutron_plugin_type: ml2.ovs
+neutron_plugin_types: 
+  - ml2.sriov
+
+nova_scheduler_default_filters:
+  - ComputeFilter
+  - AggregateNumInstancesFilter
+  - AggregateIoOpsFilter
+  - ComputeCapabilitiesFilter
+  - ImagePropertiesFilter
+  - ServerGroupAntiAffinityFilter
+  - ServerGroupAffinityFilter
+  - NUMATopologyFilter
+  - AvailabilityZoneFilter
+  - SameHostFilter
+  - DifferentHostFilter
+  - AggregateInstanceExtraSpecsFilter
+  - PciPassthroughFilter
+
+nova_pci_passthrough_whitelist: '{ "physical_network":"sriovnet1", "devname":"enp8s0f1" }'
+
+neutron_ml2_drivers_type: "flat,vlan,vxlan"
+neutron_plugin_base:
+  - router
+  - metering
+## ceph-ansible settings
+## See https://github.com/ceph/ceph-ansible/tree/master/group_vars for
+## additional configuration options available.
+monitor_address_block: "{{ cidr_networks.management }}"
+public_network: "{{ cidr_networks.management }}"
+cluster_network: "{{ cidr_networks.storage }}"
+journal_size: 10240 # size in MB
+# ceph-ansible automatically creates pools & keys for OpenStack services
+openstack_config: true
+cinder_ceph_client: cinder
+glance_ceph_client: glance
+glance_default_store: rbd
+glance_rbd_store_pool: images
+nova_ceph_client: cinder
+nova_libvirt_images_rbd_pool: vms
+nova_libvirt_images_type: rbd
+nova_libvirt_images_rbd_ceph_conf: /etc/ceph/ceph.conf
+nova_libvirt_rbd_secret_uuid: "{{ cinder_ceph_client_uuid }}"
+
+#galera_monitoring_allowed_source: "10.0.0.0/24"
+cinder_backends:
+  rbd_volumes:
+    volume_driver: cinder.volume.drivers.rbd.RBDDriver
+    rbd_pool: volumes
+    rbd_ceph_conf: /etc/ceph/ceph.conf
+    rbd_store_chunk_size: 8
+    volume_backend_name: rbddriver
+    rbd_user: "{{ cinder_ceph_client }}"
+    rbd_secret_uuid: "{{ cinder_ceph_client_uuid }}"
+    report_discard_supported: true
+
+haproxy_user_ssl_cert: /home/voereir/openstack-ansible/voereir_certs-20240618/fullchain.pem
+haproxy_user_ssl_key: /home/voereir/openstack-ansible/voereir_certs-20240618/fullchain.pem
+
 # Copyright 2014, Rackspace US, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -83,10 +180,10 @@ install_method: source
 # glance_swift_store_region: "NAME_OF_REGION"
 
 ## Common Ceph Overrides
-# ceph_mons:
-#   - 10.16.5.40
-#   - 10.16.5.41
-#   - 10.16.5.42
+ceph_mons:
+   - 172.16.227.141
+   - 172.16.227.143
+   - 172.16.227.144
 
 ## Custom Ceph Configuration File (ceph.conf)
 # By default, your deployment host will connect to one of the mons defined above to

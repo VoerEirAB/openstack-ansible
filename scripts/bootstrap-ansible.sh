@@ -86,9 +86,9 @@ case ${DISTRO_ID} in
     ubuntu|debian)
         apt-get update
         DEBIAN_FRONTEND=noninteractive apt-get -y install \
-          python3 python3-dev \
-          python3-minimal python3-apt \
-          python3-venv\
+          python3.9 python3.9-dev \
+          python3.9-minimal python3-apt \
+          python3.9-venv\
         ;;
 esac
 
@@ -122,7 +122,8 @@ elif [ -n "$HTTP_PROXY" ]; then
   PIP_OPTS+="--proxy $HTTP_PROXY"
 fi
 
-PYTHON_EXEC_PATH="${PYTHON_EXEC_PATH:-$(which python3)}"
+#PYTHON_EXEC_PATH="${PYTHON_EXEC_PATH:-$(which python3)}"
+PYTHON_EXEC_PATH="/home/voereir/openstack-ansible/venv39/bin/python3"
 
 # Obtain the SHA of the upper-constraints to use for the ansible runtime venv
 TOX_CONSTRAINTS_SHA=$(awk '/requirements_git_install_branch:/ {print $2}' inventory/group_vars/all/source_git.yml)
