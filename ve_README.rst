@@ -87,3 +87,66 @@ servers Heat has already deleted:
 sudo scripts/voereir/why-no-valid-host.sh <server name or UUID>
 sudo SINCE="2 weeks ago" scripts/voereir/why-no-valid-host.sh <server name or UUID>
 ```
+
+Routing between SR-IOV networks (sriov-router)
+----------------------------------------------
+
+sriov-router routes between sriov-net (VLAN 1000, 30.0.0.0/24) and
+sriov-net-bose (VLAN 1001, 30.0.1.0/24). A Neutron router lives on the network
+node (voereir11) and plugs in through OVS, so voereir11's OVS maps sriovnet1 to
+br-vlan on enp8s0f1 (host_vars of infra1 in openstack_user_config.yml). The
+computes keep only physnet1 in OVS; their VMs use VFs. Order of work:
+
+1. Switch (voereir_switch, Dell OS9): VLAN 1001 has no member ports, so
+   sriov-net-bose traffic never leaves a host. Tag it like VLAN 1000 on the
+   enp8s0f1 ports of voereir11, 13, 14 and 15:
+
+```
+configure
+interface vlan 1001
+ tagged twentyFiveGigE 1/13,1/15-1/17
+end
+write memory
+```
+
+2. voereir11 OVS, with OSA from a deploy host:
+
+```
+openstack-ansible os-neutron-install.yml --limit infra1
+```
+
+   or by hand on voereir11 (same result; no deploy host needed). Copy
+   etc/netplan/antelope/voereir11/50-cloud-init.yaml to /etc/netplan/ (no
+   netplan apply), then drop the old address and add the bridge:
+
+```
+sudo ip addr flush dev enp8s0f1
+sudo ip rule del from 30.0.0.0/24 lookup 3 priority 100
+sudo ip rule del from 30.0.0.0/24 to 30.0.0.0/24 lookup main
+sudo ip route flush table 3
+sudo ovs-vsctl --may-exist add-br br-vlan -- set bridge br-vlan fail_mode=secure
+sudo ovs-vsctl --may-exist add-port br-vlan enp8s0f1
+sudo sed -i 's/^bridge_mappings = physnet1:br-flat$/bridge_mappings = physnet1:br-flat,sriovnet1:br-vlan/' /etc/neutron/plugins/ml2/openvswitch_agent.ini
+sudo systemctl restart neutron-openvswitch-agent neutron-dhcp-agent
+```
+
+   The OVS agent on voereir11 should now report
+   bridge_mappings {"physnet1": "br-flat", "sriovnet1": "br-vlan"}, and
+   sriov-net-bose's DHCP port should go from binding_failed to ACTIVE.
+
+3. Router, with an admin openrc (the sriov-net policy lets only admins create
+   its non-direct router port; members still get direct ports only):
+
+```
+scripts/voereir/sriov-router-setup.sh            # dry run
+scripts/voereir/sriov-router-setup.sh --apply    # create / reconcile sriov-router
+```
+
+   It attaches sriov-net-bose on its gateway 30.0.1.1, gives the router
+   30.0.0.1 on sriov-net and adds a host route 30.0.1.0/24 via 30.0.0.1 to
+   sriov-net's subnet, which new VMs get from the config drive. VMs already
+   running on sriov-net need "ip route add 30.0.1.0/24 via 30.0.0.1".
+
+Rollback on voereir11: "sudo ovs-vsctl del-br br-vlan", put bridge_mappings back
+to physnet1:br-flat, restart neutron-openvswitch-agent, restore the old
+netplan file from git and re-add 30.0.0.111/24 to enp8s0f1.

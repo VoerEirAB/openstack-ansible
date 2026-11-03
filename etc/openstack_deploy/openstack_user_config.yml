@@ -90,6 +90,12 @@ _infrastructure_hosts: &infrastructure_hosts
   infra1:
     ip: 172.16.227.141
     no_containers: true
+    host_vars:
+      # br-vlan on enp8s0f1 for sriovnet1 (VLANs 1000-1009), so routers and
+      # DHCP ports can bind on the SR-IOV networks. The VFs on enp8s0f1 keep
+      # working; the switch port (twentyFiveGigE 1/13) must carry the VLANs.
+      voereir_ovs_network_mappings: "physnet1:br-flat,sriovnet1:br-vlan"
+      voereir_ovs_interface_mappings: "br-flat:eno1,br-vlan:enp8s0f1"
 
 # nova hypervisors
 compute_hosts: &compute_hosts

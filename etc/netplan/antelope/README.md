@@ -25,3 +25,7 @@ files to `/etc/netplan/` on that host and run `netplan apply`.
   traffic does not pass between hosts; VLAN 1000 tagged does). They overlap
   `sriov-net`'s subnet, so Neutron's allocation pool for `sriov-net` excludes
   them.
+* On voereir11 (the network node) `enp8s0f1` is also a port of the OVS bridge
+  `br-vlan` (sriovnet1, for `sriov-router` and DHCP), so it has no address and
+  its `30.0.0.111` with the policy routes for it is gone. If cloud-init
+  regenerates the file, remove them again.

@@ -16,8 +16,12 @@ neutron_provider_networks:
   network_types: "vxlan,vlan,flat"
   network_vlan_ranges: "sriovnet1:1000:1009"
   network_vxlan_ranges: "1:1000"
-  network_mappings: "physnet1:br-flat"
-  network_interface_mappings: "br-flat:eno1"
+  # OVS bridges per host. Only the network node (infra1) also maps sriovnet1,
+  # so the L3 and DHCP agents can plug into the SR-IOV VLANs (sriov-router);
+  # see host_vars in openstack_user_config.yml. user_variables are extra vars
+  # and beat host_vars, hence the voereir_* indirection.
+  network_mappings: "{{ voereir_ovs_network_mappings | default('physnet1:br-flat') }}"
+  network_interface_mappings: "{{ voereir_ovs_interface_mappings | default('br-flat:eno1') }}"
   network_sriov_mappings: "sriovnet1:enp8s0f1"
 # Enable DPDK support
 #ovs_dpdk_support: True
@@ -109,14 +113,16 @@ nova_nova_conf_overrides:
   libvirt:
     cpu_model: "{{ voereir_nova_cpu_model | default('SandyBridge-IBRS') }}"
 
-## sriov-net (VLAN 1000 on sriovnet1) is SR-IOV only: allow only
-## binding:vnic_type=direct ports on it. Each rule is the Neutron 2023.1
-## default, ANDed with the sriov-net condition. Created by
-## scripts/voereir/sriov-net-setup.sh; update the ID if the network is recreated.
+## sriov-net (VLAN 1000 on sriovnet1) is SR-IOV only for users: allow only
+## binding:vnic_type=direct ports on it, except for admins (sriov-router's
+## port). Each rule is the Neutron 2023.1 default, ANDed with the sriov-net
+## condition; role:admin because this Neutron does not define rule:admin_only.
+## Created by scripts/voereir/sriov-net-setup.sh; update the ID if the network
+## is recreated.
 voereir_sriov_net_id: "0bb7875d-b3d1-4099-b336-005b050aa054"
 neutron_policy_overrides:
-  "create_port": "((rule:admin_only) or (role:member and project_id:%(project_id)s)) and (not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
-  "update_port:binding:vnic_type": "(rule:admin_only or role:member and project_id:%(project_id)s or rule:context_is_advsvc) and (not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
+  "create_port": "((role:admin) or (role:member and project_id:%(project_id)s)) and (role:admin or not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
+  "update_port:binding:vnic_type": "(role:admin or role:member and project_id:%(project_id)s or rule:context_is_advsvc) and (role:admin or not '{{ voereir_sriov_net_id }}':%(network_id)s or 'direct':%(binding:vnic_type)s)"
 
 ## Let admins list stacks across all projects (Heat's default is deny_everybody).
 heat_policy_overrides:

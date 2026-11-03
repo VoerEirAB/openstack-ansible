@@ -36,29 +36,13 @@ network:
                 table: 254
                 to: 20.0.0.0/24
             set-name: enp8s0f0
+        # A port of the OVS bridge br-vlan (sriovnet1) on this host, so no
+        # address here. The untagged 30.0.0.111 and its routes were never
+        # reachable (30.0.0.1 does not exist on the untagged network).
         enp8s0f1:
             virtual-function-count: 16
-            addresses:
-            - 30.0.0.111/24
             match:
                 macaddress: a0:36:9f:53:e5:f2
             mtu: 9000
-            nameservers:
-                addresses:
-                - 172.16.227.116
-                search:
-                - voereir.io
-                - maas
-            routes:
-            -   table: 3
-                to: 0.0.0.0/0
-                via: 30.0.0.1
-            routing-policy:
-            -   from: 30.0.0.0/24
-                priority: 100
-                table: 3
-            -   from: 30.0.0.0/24
-                table: 254
-                to: 30.0.0.0/24
             set-name: enp8s0f1
     version: 2
