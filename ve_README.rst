@@ -77,3 +77,13 @@ Boot VMs on it with a direct port and a config drive (no DHCP, no gateway):
 scripts/voereir/sriov-vm-create.sh <name> <image> <flavor> [keypair]
 EXTRA_NETWORK=private scripts/voereir/sriov-vm-create.sh ...   # plus a normal NIC
 ```
+
+When a server fails with "No valid host was found", see why on voereir11 (the
+host running nova-scheduler). It prints what the server asked for, which
+scheduler filter removed the hosts and the reason for each host, and works for
+servers Heat has already deleted:
+
+```
+sudo scripts/voereir/why-no-valid-host.sh <server name or UUID>
+sudo SINCE="2 weeks ago" scripts/voereir/why-no-valid-host.sh <server name or UUID>
+```
